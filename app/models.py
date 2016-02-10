@@ -8,8 +8,8 @@ class User(db.Model):
     __tablename__ = "user"
 
     id = db.Column(UUIDType(binary=False), default=uuid.uuid4, primary_key=True)          # string, UUID representing the identifier for this commmand
-    firstname = db.Column(db.String(128), unique=False)                                      # string, device id
-    lastname = db.Column(db.String(256), unique=False)                                     # string, command text
+    firstname = db.Column(db.String(128), unique=False)                                   # string, device id
+    lastname = db.Column(db.String(256), unique=False)                                    # string, command text
     created_timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)          # number, UNIX UTC seconds when command was originally created in this system.
 
     def __init__(self, firstname, lastname):
