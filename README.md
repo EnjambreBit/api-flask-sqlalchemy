@@ -1,13 +1,20 @@
 # api-flask-sqlalchemy
 
-Un ejemplo de API desarrollada con Flask y SQLAlchemy, tal como se
-describe en http://enjambrebit.com.ar/blog/creando-api-con-flask
+Este repositorio contiene un ejemplo de API desarrollada utilizando
+Flask y SQLAlchemy.
 
+El objetivo principal del repositorio es ilustrar algunas ideas que detallamos
+en el artículo http://enjambrebit.com.ar/blog/creando-api-con-flask, aunque
+también puede servir como punto de partida para hacer una API con estas
+tecnologías.
 
 ## ¿Qué incluye?
 
 El proyecto está desarrollado con Flask, virtualenv, usa SQLAlchemy como ORM
 para los modelos, implementa CORS e identificadores de registros usando UUID.
+
+También incluye un modelo de datos ilustrativo "User", con algunas rutas
+para crear, listar, modificar y eliminar registros.
 
 
 ## ¿Cómo iniciar el proyecto?
@@ -44,7 +51,7 @@ El resto de los comandos se pueden iniciar como tareas make, si escribís
 
 ## Tests
 
-Para ejecutar los tests podrías ejecutar:
+Para ejecutar los tests podés ejecutar:
 
     ➤ make test
 
@@ -57,3 +64,27 @@ o bien, ejecutar los tests de forma constante:
     ......
     -----------------------------------------------------------------------------
     6 tests run in 0.4 seconds (6 tests passed)
+
+
+
+## Ejemplos de invocación a la API
+
+Una vez iniciada la API con ``make run``, se pueden hacer consultas directamente
+usando ``CURL``. Estos son algunos ejemplos:
+
+Crear un usuario:
+
+    curl -H "Content-Type: application/json" -X POST -d '{"firstname":"James", "lastname":"Drapper"}' http://localhost:5000/users
+
+Obtener la lista de usuarios:
+
+    curl -X GET http://localhost:5000/users
+
+Borrar un usuario por ID:
+
+    curl  -X DELETE  http://localhost:5000/users/7ce0aaf1-2215-4a8a-bc1d-9eba789b28c5
+
+
+## Más información
+
+- http://enjambrebit.com.ar/blog/creando-api-con-flask
